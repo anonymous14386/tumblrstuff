@@ -3,10 +3,10 @@ var CHUNK = {
   canvasHeight: 600,
   pixelSize: 10,
   KEY_MAPPING: {
-    39: "right",
-    40: "down",
-    37: "left",
-    38: "up"
+    68: "right",
+    83: "down",
+    65: "left",
+    87: "up"
   },
   attrs: {},
   gameHeight: function() {
