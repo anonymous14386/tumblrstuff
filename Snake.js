@@ -31,7 +31,11 @@ var advanceGame = function() {
   snake = moveSnake(snake);
   if (CHUNK.detectCollisionBetween(snake, CHUNK.gameBoundaries())) {
     CHUNK.endGame();
-    alert("Game over, play again?");
+    var dialog = $('<p>Game over, play again?</p>').dialog({
+      buttons: {
+        "Yes": function() {alert('you chose yes');},
+        "No":  function() {alert('you chose no');},
+      }
   }
   drawSnake(snake);
 }
