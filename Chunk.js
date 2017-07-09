@@ -25,7 +25,7 @@ var CHUNK = {
     tickCallback();
     CHUNK.processID = setInterval(function() {
       tickCallback();
-    }, 100 / gameSpeed);
+    }, 200 / gameSpeed);
   },
   onArrowKey: function(callback) {
     document.addEventListener('keydown', function(e) {
