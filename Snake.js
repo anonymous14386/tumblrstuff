@@ -32,7 +32,7 @@ var advanceGame = function() {
   if (CHUNK.detectCollisionBetween(snake, CHUNK.gameBoundaries())) {
     CHUNK.flashMessage("Game over");
     CHUNK.endGame();
-    console.log("Game over");
+    CHUNK.flashMessage("Game over");
   }
   drawSnake(snake);
 }
