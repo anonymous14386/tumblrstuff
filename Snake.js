@@ -29,6 +29,10 @@ var moveSnake = function(snake) {
 
 var advanceGame = function() {
   snake = moveSnake(snake);
+  if (CHUNK.detectCollisionBetween (snake, CHUNK.gameBoundaries ())) {
+    CHUNK.endGame();
+    CHUNK.flashMessage("You hit a wall");
+  }
   drawSnake(snake);
 }
 
