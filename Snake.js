@@ -30,7 +30,8 @@ var moveSnake = function(snake) {
 var advanceGame = function() {
   snake = moveSnake(snake);
   if (CHUNK.detectCollisionBetween(snake, CHUNK.gameBoundaries())) {
-    CHUNK.flashMessage("Game over");
+    CHUNK.endGame();
+    alert("Game over, play again?");
   }
   drawSnake(snake);
 }
