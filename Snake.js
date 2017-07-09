@@ -3,8 +3,6 @@ var drawSnake = function(snakeToDraw) {
   var drawableObjects = [drawableSnake];
   CHUNK.draw(drawableObjects);
 }
-var snake = [{ top: 0, left: 0}];
-drawSnake(snake);
 
 var moveSnake = function(snake) {
   var oldSegment = snake[0];
@@ -13,5 +11,11 @@ var moveSnake = function(snake) {
   return newSnake;
 }
 
+var advanceGame = function() {
+  snake = moveSnake(snake);
+  drawSnake(snake);
+}
+
+
 var snake = [{ top: 0, left: 0}];
-drawSnake(snake);
+CHUNK.executeNTimesPerSecond(advanceGame, 1);
