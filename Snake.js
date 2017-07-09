@@ -5,14 +5,14 @@ var drawSnake = function(snakeToDraw) {
 }
 
 var moveSegment = function(segment) {
-  switch (segment.direction) {
-    case 'down':
-      return { top: segment.top + 1, left: segment.left }
-    case 'up':
-      return { top: segment.top - 1, left: segment.left }
-    case 'right':
+  switch(segment.direction) {
+    case "down":
+      return { top: segment.top + 1, left: segment.left };
+    case "up":
+      return { top: segment.top - 1, left: segment.left };
+    case "right":
       return { top: segment.top, left: segment.left + 1 }
-    case 'left':
+    case "left":
       return { top: segment.top, left: segment.left - 1 }
     default:
       return segment;
@@ -21,7 +21,7 @@ var moveSegment = function(segment) {
 
 var moveSnake = function(snake) {
   var oldSegment = snake[0];
-  var newSegment = { top: oldSegment.top + 1, left: oldSegment.left };
+  var newSegment = moveSegment(oldSegment);
   newSegment.direction = oldSegment.direction;
   var newSnake = [newSegment];
   return newSnake;
