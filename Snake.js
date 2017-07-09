@@ -32,7 +32,6 @@ var advanceGame = function() {
   if (CHUNK.detectCollisionBetween(snake, CHUNK.gameBoundaries())) {
     CHUNK.flashMessage("Whoops! you hit a wall!");
     CHUNK.endGame();
-    alert("It works");
   }
   drawSnake(snake);
 }
