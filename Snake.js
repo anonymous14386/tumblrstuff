@@ -59,7 +59,7 @@ $(document).ready(function(){ $("#startGame").click(function(){
 	{
 		//To avoid the snake trail we need to paint the BG on every frame
 		//Lets paint the canvas now
-		ctx.fillStyle = "white";
+		ctx.fillStyle = "black";
 		ctx.fillRect(0, 0, w, h);
 		ctx.strokeStyle = "black";
 		ctx.strokeRect(0, 0, w, h);
@@ -137,9 +137,9 @@ $(document).ready(function(){ $("#startGame").click(function(){
 	//Lets first create a generic function to paint cells
 	function paint_cell(x, y)
 	{
-		ctx.fillStyle = "blue";
+		ctx.fillStyle = "#0F0";
 		ctx.fillRect(x*cw, y*cw, cw, cw);
-		ctx.strokeStyle = "white";
+		ctx.strokeStyle = "black";
 		ctx.strokeRect(x*cw, y*cw, cw, cw);
 	}
 	
