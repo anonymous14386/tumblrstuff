@@ -1,15 +1,16 @@
-$(document).ready(function(){
+$(document).ready(function(){ $("#startGame").click(function(){
 	//Canvas stuff
-	var canvas = $("#canvas")[0];
+	var canvas = $("#snake")[0];
 	var ctx = canvas.getContext("2d");
-	var w = $("#canvas").width();
-	var h = $("#canvas").height();
+	var w = $("#snake").width();
+	var h = $("#snake").height();
 	
 	//Lets save the cell width in a variable for easy control
 	var cw = 10;
 	var d;
 	var food;
 	var score;
+    var speed = 150;
 	
 	//Lets create the snake now
 	var snake_array; //an array of cells to make up the snake
@@ -23,10 +24,12 @@ $(document).ready(function(){
 		score = 0;
 		
 		//Lets move the snake now using a timer which will trigger the paint function
-		//every 60ms
+		//every 150ms
+        
 		if(typeof game_loop != "undefined") clearInterval(game_loop);
-		game_loop = setInterval(paint, 60);
+		game_loop = setInterval(paint, speed);
 	}
+    
 	init();
 	
 	function create_snake()
@@ -81,6 +84,7 @@ $(document).ready(function(){
 		if(nx == -1 || nx == w/cw || ny == -1 || ny == h/cw || check_collision(nx, ny, snake_array))
 		{
 			//restart game
+            speed = 150;
 			init();
 			//Lets organize the code a bit now.
 			return;
@@ -93,9 +97,19 @@ $(document).ready(function(){
 		if(nx == food.x && ny == food.y)
 		{
 			var tail = {x: nx, y: ny};
-			score++;
-			//Create new food
+			//Increase score
+            score++;
+            
+            //Create new food
 			create_food();
+            
+            //Decrease speed
+            if (speed > 60)
+            {
+                speed--;
+            }
+            if(typeof game_loop != "undefined") clearInterval(game_loop);
+            game_loop = setInterval(paint, speed);
 		}
 		else
 		{
@@ -151,4 +165,5 @@ $(document).ready(function(){
 		else if (key == "83" && d != "up") d = "down";
 		//The snake is now keyboard controllable
 	})
+})
 })
